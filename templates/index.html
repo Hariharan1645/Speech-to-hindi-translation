@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Translation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Speech to Hindi Translation</h1>
+        
+        <div class="upload-section">
+            <label for="audioFile" class="upload-label">
+                <span>Select Audio File</span>
+                <input type="file" id="audioFile" accept="audio/*" class="file-input">
+            </label>
+        </div>
+
+        <div class="preview-section">
+            <audio id="audioPreview" controls class="audio-preview" style="display: none;">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <button id="translateBtn" class="translate-btn" disabled>Translate</button>
+
+        <div class="results-section">
+            <div class="result-box">
+                <h3>Original Text:</h3>
+                <p id="originalText"></p>
+            </div>
+            <div class="result-box">
+                <h3>Hindi Translation:</h3>
+                <p id="translatedText"></p>
+            </div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            Translating...
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
